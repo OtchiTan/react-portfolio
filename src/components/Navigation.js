@@ -1,13 +1,18 @@
-import { AppBar, Toolbar } from '@mui/material';
+import { AppBar, Button, Toolbar } from '@mui/material';
+import { Box } from '@mui/system';
 import React from 'react';
 
 const Navigation = () => {
     return (
-        <AppBar sx={{position:"relative"}}>
-            <Toolbar>
-                
-            </Toolbar>
-        </AppBar>
+        <Box sx={{flexGrow:1}}>
+            <AppBar position="static">
+                <Toolbar sx={{display:'flex', justifyContent:'space-evenly'}}>
+                    <Button color="inherit" href="/">Accueil</Button>
+                    <Button color="inherit" href="/projets">Projets</Button>
+                    <Button color="inherit" href="/competences">Compétences</Button>
+                </Toolbar>
+            </AppBar>
+        </Box>
     );
 };
 
