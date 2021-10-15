@@ -4,13 +4,12 @@ import Navigation from '../components/Navigation';
 
 const Home = () => {
 
-
     return (
         <div>
             <Navigation/>
             <Container maxWidth='md' sx={{ marginY:'2%' }}>
-                <Typography variant='h3'>Otchi</Typography>
-                <Typography variant='h4'>Developper</Typography>
+                <Typography variant='h3'>Titre</Typography>
+                <Typography variant='h4'>Sous titre</Typography>
                 <Typography>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                     Obcaecati at atque repellendus officiis quibusdam officia. Dolores vero tempore,
