@@ -2,12 +2,13 @@ import { Button, Card, CardActions, CardContent, CardHeader, CardMedia, Containe
 import Navigation from '../components/Navigation';
 
 const ProjectContent = (props) => {
+
     return (
         <Card sx={{maxWidth: "80%", marginY:"1rem"}}>
-            <CardHeader title={props.title}/>
-            <CardMedia component="img" image={props.imgUrl}/>
+            <CardHeader title={props.data.title}/>
+            <CardMedia component="img" image={props.data.imgUrl}/>
             <CardContent>
-                <Typography>{props.desc}</Typography>
+                <Typography>{props.data.desc}</Typography>
             </CardContent>
             <CardActions>
                 <Button size="small">More</Button>
@@ -17,6 +18,21 @@ const ProjectContent = (props) => {
 }
 
 const Projets = () => {
+    const Axios = require('axios')
+    let projectData;
+    Axios.get('http://otchi.games:8001').then((res) => {
+        projectData = res.data
+    })
+    console.log(projectData)
+    var Projets;
+
+    for (var projet in projectData){
+        console.log("Test")
+        Projets += <ProjectContent data={projet}/>
+    }
+
+    console.log(Projets)
+
     return (
         <div>
             <Navigation/>
@@ -27,8 +43,7 @@ const Projets = () => {
                 alignItems:"center" }}
                 >
                 <Typography variant="h3">Projets</Typography>
-                <ProjectContent title="Captain Battle" imgUrl="/cb_1.jpg" desc="Desc 1"/>
-                <ProjectContent title="Magic Project" imgUrl="/mp_1.jpg" desc="Desc 2"/>
+                {Projets}
             </Container>
         </div>
     );
