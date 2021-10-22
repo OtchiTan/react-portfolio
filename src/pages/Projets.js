@@ -1,5 +1,7 @@
 import { Button, Card, CardActions, CardContent, CardHeader, CardMedia, Container, Typography } from '@mui/material';
+import { useEffect, useState } from 'react';
 import Navigation from '../components/Navigation';
+import Axios from 'axios';
 
 const ProjectContent = (props) => {
 
@@ -18,20 +20,20 @@ const ProjectContent = (props) => {
 }
 
 const Projets = () => {
-    const Axios = require('axios')
-    let projectData;
-    Axios.get('http://otchi.games:8001').then((res) => {
-        projectData = res.data
-    })
-    console.log(projectData)
-    var Projets;
+    
 
-    for (var projet in projectData){
-        console.log("Test")
-        Projets += <ProjectContent data={projet}/>
-    }
+    const [appState, setAppState] = useState()
 
-    console.log(Projets)
+    useEffect(() => {
+        Axios.get('http://otchi.games:8001').then((res) => {
+            var Projets = res.data.map(projet => <ProjectContent data={projet}/>);
+            // for (var projet in res.data){
+            //     Projets += <ProjectContent data={projet}/>
+            // }
+            setAppState(Projets);
+            console.log(appState)
+        })
+    }, [setAppState,appState])
 
     return (
         <div>
@@ -43,10 +45,10 @@ const Projets = () => {
                 alignItems:"center" }}
                 >
                 <Typography variant="h3">Projets</Typography>
-                {Projets}
+                {appState}
             </Container>
         </div>
     );
-};
+}
 
 export default Projets;
