@@ -2,7 +2,7 @@ import { Container } from '@mui/material';
 import React from 'react';
 import Navigation from '../components/Navigation';
 
-const Competences = () => {
+const Skills = () => {
     return (
         <div>
             <Navigation/>
@@ -13,4 +13,4 @@ const Competences = () => {
     );
 };
 
-export default Competences;
+export default Skills;

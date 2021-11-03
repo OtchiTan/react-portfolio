@@ -4,34 +4,28 @@ import Navigation from '../components/Navigation';
 import Axios from 'axios';
 
 const ProjectContent = (props) => {
-
     return (
         <Card sx={{maxWidth: "80%", marginY:"1rem"}}>
             <CardHeader title={props.data.title}/>
-            <CardMedia component="img" image={props.data.imgUrl}/>
+            <CardMedia component="img" image={"http://localhost:8001/project/img/"+props.data.imgUrl}/>
             <CardContent>
                 <Typography>{props.data.desc}</Typography>
             </CardContent>
             <CardActions>
-                <Button size="small">More</Button>
+                <Button size="small" href={"/projects/" + props.data.projetId}>Plus d'info</Button>
             </CardActions>
         </Card>
     )
 }
 
-const Projets = () => {
-    
+const ProjectList = () => {  
 
     const [appState, setAppState] = useState()
 
     useEffect(() => {
-        Axios.get('http://otchi.games:8001').then((res) => {
-            var Projets = res.data.map(projet => <ProjectContent data={projet}/>);
-            // for (var projet in res.data){
-            //     Projets += <ProjectContent data={projet}/>
-            // }
-            setAppState(Projets);
-            console.log(appState)
+        Axios.get('http://localhost:8001/project/').then((res) => {
+            var Projets = res.data.map(projet => <ProjectContent data={projet}/>)
+            setAppState(Projets)
         })
     }, [setAppState,appState])
 
@@ -51,4 +45,4 @@ const Projets = () => {
     );
 }
 
-export default Projets;
+export default ProjectList;

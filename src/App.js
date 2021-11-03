@@ -1,10 +1,11 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from "./pages/Home"
 import NotFound from './pages/NotFound';
-import Projets from './pages/Projets';
-import Competences from './pages/Competences'
+import ProjectList from './pages/ProjectList';
+import Skills from './pages/Skills'
 import { createTheme } from '@mui/material';
 import { ThemeProvider } from '@emotion/react';
+import Project from './pages/Project';
 
 const theme = createTheme({
   palette: {
@@ -29,8 +30,9 @@ function App() {
       <Router>
         <Switch>
           <Route path="/" exact component={Home}/>
-          <Route path="/projets" exact component={Projets}/>
-          <Route path="/competences" exact component={Competences}/>
+          <Route path="/projects" exact component={ProjectList}/>
+          <Route path="/projects/:id" exact component={Project}/>
+          <Route path="/skills" exact component={Skills}/>
           <Route component={NotFound} />
         </Switch>
       </Router>
