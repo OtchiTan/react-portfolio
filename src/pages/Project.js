@@ -49,8 +49,7 @@ const Project = () => {
                         <CardHeader title={appState.title} subheader={appState.text[3]}/>
                         <CardMedia component="img" image={"http://otchi.games:8001/project/img/"+appState.imgUrl}/>
                         <CardContent>
-                            <TextProject desc={appState.text[0]} langage={appState.text[1]} framework={appState.text[2]}
-                                        type={appState.text[3]} video={appState.text[4]}/>
+                            <TextProject desc={appState.text.desc} langage={appState.text.langage} framework={appState.text.framework} video={appState.text.video}/>                                       
                         </CardContent>
                     </Card>
                 </Container>

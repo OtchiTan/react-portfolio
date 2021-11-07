@@ -25,7 +25,7 @@ const ProjectList = () => {
             </Container>
             <Box sx={{height:"1rem"}}/>
         </div>
-    );
+    )
 }
 
 export default ProjectList;
