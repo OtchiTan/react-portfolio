@@ -7,9 +7,11 @@ const Home = () => {
     return (
         <div>
             <Navigation/>
-            <Container maxWidth='md' sx={{ marginY:'2%' }}>
-                <Typography variant='h3'>Titre</Typography>
-                <Typography variant='h4'>Sous titre</Typography>
+            <Container maxWidth='md' sx={{ marginY:'2%', height:"80vh", display:"flex", flexDirection:"column", justifyContent:"space-evenly" }}>
+                <div>
+                    <Typography variant='h3'>Otchi</Typography>
+                    <Typography variant='h4'>Adam Gragnic</Typography>
+                </div>
                 <Typography>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                     Obcaecati at atque repellendus officiis quibusdam officia. Dolores vero tempore,
