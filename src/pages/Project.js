@@ -3,8 +3,8 @@ import Axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import Navigation from '../components/Navigation';
-import ProjectNotFound from '../components/ProjectNotFound';
-import TextProject from '../components/TextProject';
+import ProjectNotFound from '../components/projects/ProjectNotFound';
+import TextProject from '../components/projects/TextProject';
 
 const Project = () => {
 

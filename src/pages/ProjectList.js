@@ -2,7 +2,7 @@ import { Container, Grid, Box } from '@mui/material';
 import { useEffect, useState } from 'react';
 import Navigation from '../components/Navigation';
 import Axios from 'axios';
-import ProjectCard from '../components/ProjectCard';
+import ProjectCard from '../components/projects/ProjectCard';
 
 const ProjectList = () => {  
 
