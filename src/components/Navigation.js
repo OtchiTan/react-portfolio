@@ -14,7 +14,7 @@ const Navigation = () => {
                         to="home"
                         spy={true}
                         smooth={true}
-                        offset={-70}
+                        offset={-50}
                         duration={500}
                         >
                         Accueil
@@ -29,7 +29,7 @@ const Navigation = () => {
                         to="projects"
                         spy={true}
                         smooth={true}
-                        offset={-45}
+                        offset={-50}
                         duration={500}
                     >
                         Projets
@@ -41,13 +41,13 @@ const Navigation = () => {
                 <Button>
                     <Link 
                         activeClass="active"
-                        to="skills"
+                        to="contact"
                         spy={true}
                         smooth={true}
-                        offset={-40}
+                        offset={-50}
                         duration={500}
                     >
-                        Compétences
+                        Contact
                     </Link>
                 </Button>
                 <Box flexGrow={1}/>
