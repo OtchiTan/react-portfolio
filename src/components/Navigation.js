@@ -35,21 +35,7 @@ const Navigation = () => {
                         Projets
                     </Link>
                 </Button>
-
-                <Box flexGrow={1}/>
-
-                <Button>
-                    <Link 
-                        activeClass="active"
-                        to="contact"
-                        spy={true}
-                        smooth={true}
-                        offset={-50}
-                        duration={500}
-                    >
-                        Contact
-                    </Link>
-                </Button>
+                
                 <Box flexGrow={1}/>
             </Toolbar>
         </AppBar>

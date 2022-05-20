@@ -4,9 +4,6 @@ import { Button, Paper, Typography } from '@mui/material'
 import Project from '../components/Project';
 import axios from 'axios';
 import { Box } from '@mui/system';
-import ContactMailIcon from '@mui/icons-material/ContactMail';
-import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
-import ContactsIcon from '@mui/icons-material/Contacts';
 
 export default class Home extends React.Component {
     state = {
@@ -16,7 +13,7 @@ export default class Home extends React.Component {
     componentDidMount() {
         axios.get('https://otchi.games:8001/project/')
             .then(res => {
-                const projects = res.data
+                var projects = res.data
                 this.setState({projects})
             })
     }
@@ -28,36 +25,39 @@ export default class Home extends React.Component {
             var project = this.state.projects[i]
             projectList.push(<Project data={project} isRight={i%2} />)
         }
-
-        const copyMailHandle = () => {
-            navigator.clipboard.writeText("adamgragnic@gmail.com")
-        }
-        
-        const copyTelHandle = () => {
-            navigator.clipboard.writeText("0785261084")
-        }
-
-        const copyDiscordHandle = () => {
-            navigator.clipboard.writeText("Otchi#2078")
-        }
         
         return (
             <Box>
                 <Navigation/>
+
                 <Box className='anchor' id='home' sx={{height:"100vh", display:'grid', gridTemplateRows:'10rem 1fr'}}>
                     <Box>
                         <Typography variant='h3' sx={{marginTop:"4rem", marginLeft:"1rem"}}>Otchi - Portfolio</Typography>
                         <Typography variant='h4' sx={{color:"secondary.dark", marginLeft:"1rem"}}>Adam Gragnic</Typography>
                     </Box>
-                    <Paper sx={{margin:"2rem", padding:"2rem", display:'flex', flexDirection:'column', justifyContent:'center',alignItems:"center"}} variant="elevation" elevation={4}>
-                        <Typography variant='h5' color='primary'>
-                            Portfolio en cours de développement
+                    <Paper sx={{margin:"2rem", padding:"4rem", display:'flex', flexDirection:'column'}} variant="elevation" elevation={4}>
+                        <Typography variant='h4' color='primary'>
+                            Développeur Web - Jeux Vidéo
                         </Typography>
                         <br/><br/>
-                        <Typography variant='h5' textAlign="center">
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et quibusdam ducimus eligendi nam, ullam, quo autem earum odit sit,
-                            sapiente aut ipsum nostrum tempore eum laudantium voluptas quam magnam culpa!
+                        <Typography variant='h5' sx={{textIndent:'2rem', marginTop:'1rem'}}>
+                            Je suis un étudiant en programmation. J'ai commencer le développement il y a maintenant 2 ans, avec du 
+                            jeux vidéo sur Unreal Engine, que je continue toujours aujourd'hui. Je me suis aussi former sur le développement
+                            web, principalement en Back End que ce soit en PHP ou en JS. J'ai aussi appris à réaliser des applications en Java
+                            que se soit pour Windows ou pour Android.
                         </Typography>
+                        <br/>
+                        <Typography variant='h5' sx={{textIndent:'2rem', marginTop:'1rem'}}>
+                                Vous pourrez suivre les avancements de mes différents projets au travers de ce Portfolio. J'utilise
+                                les services de GitHub pour versionner mes applications et GitLab pour mes jeux.
+                        </Typography>
+                        
+                        <Box flexGrow={1}/>
+                        <Box sx={{display:'flex', justifyContent:'flex-end'}}>
+                            <Button variant='outlined' sx={{mx:'1rem'}} href='https://gitlab.com/OtchiTan'>Gitlab</Button>
+                            <Button variant='outlined' sx={{mx:'1rem'}} href='https://github.com/OtchiTan'>Github</Button>
+                            <Button href='mailto: adamgragnic@gmail.com' sx={{mx:'1rem'}}>adamgragnic@gmail.com</Button>
+                        </Box>
                     </Paper>
                 </Box>
 
@@ -66,37 +66,6 @@ export default class Home extends React.Component {
                     <Box className='projectList'>
                         {projectList}
                     </Box>
-                </Box>
-
-                <Box className='anchor' id='contact' sx={{minHeight:"100vh", display:"grid", gridTemplateRows:"3rem 1fr 5rem"}}>
-                    <Typography variant='h3' sx={{marginLeft:"1rem"}}>Contact</Typography>
-                    <Paper elevation={3} sx={{marginTop:"2rem", marginX:"3rem", display:"flex", justifyContent:'center', alignItems:'center'}}>
-                        <Box sx={{height:'80%',width:'80%', display:'grid',gridTemplateRows:'repeat(5,1fr)'}}>
-                            <Box sx={{display:'flex', justifyContent:'center', alignItems:'center'}}>
-                                <ContactMailIcon color='secondary'/>
-                                <Button variant='outlined' href='mailto: adamgragnic@gmail.com' sx={{marginX:'3rem'}}>adamgragnic@gmail.com</Button>
-                                <Button variant='contained'  onClick={copyMailHandle}>Copié</Button>
-                            </Box>
-                            
-                            <Box sx={{display:'flex', justifyContent:'center', alignItems:'center'}}>
-                                <PhoneAndroidIcon color='secondary'/>
-                                <Button variant='outlined' href='tel:0785261084' sx={{marginX:'3rem'}}>07 85 26 10 84</Button> 
-                                <Button variant='contained'  onClick={copyTelHandle}>Copier</Button>
-                            </Box>
-                            
-                            <Box sx={{display:'flex', justifyContent:'center', alignItems:'center'}}>
-                                <ContactsIcon color='secondary'/>
-                                <Button variant='outlined' sx={{marginX:'3rem'}}>Otchi#2078</Button>
-                                <Button variant='contained' onClick={copyDiscordHandle}>Copier</Button>
-                            </Box>
-                            <Box sx={{display:'flex', justifyContent:'center', alignItems:'center'}}>
-                                <Button variant='outlined' href='https://github.com/OtchiTan'>GitHub</Button>
-                            </Box>
-                            <Box sx={{display:'flex', justifyContent:'center', alignItems:'center'}}>
-                                <Button variant='outlined' href='https://gitlab.com/OtchiTan'>GitLab</Button>
-                            </Box>
-                        </Box>
-                    </Paper>
                 </Box>
             </Box>
         )
